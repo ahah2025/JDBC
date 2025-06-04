@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AuthorINsert {
+public class AuthorInsert {
 
 	public static void main(String[] args) {
 		// 작가 데이터 저장
