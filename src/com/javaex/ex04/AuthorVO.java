@@ -8,8 +8,7 @@ public class AuthorVO {
 	private String authorDesc;
 
 	// 생성자
-	public AuthorVO() {
-	}
+	public AuthorVO() {}
 
 	public AuthorVO(int authorId, String authorName, String authorDesc) {
 		this.authorId = authorId;
