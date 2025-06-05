@@ -48,10 +48,17 @@ public class AuthorSelect {
 			while (rs.next()) {
 
 				// ResultSet 의 데이타를 자바의 변수에 담는다
+				
 				int authorId = rs.getInt("author_id");
 				String authorName = rs.getString("author_name");
 				String authorDesc = rs.getString("author_desc");
 
+				/*
+				int authorId = rs.getInt(1);
+				String authorName = rs.getString(2);
+				String authorDesc = rs.getString(3);
+				*/
+				
 				// 자바의 데이터를 VO로 묶는다
 				AuthorVO authorVO = new AuthorVO(authorId, authorName, authorDesc);
 
@@ -64,7 +71,9 @@ public class AuthorSelect {
 		} catch (SQLException e) {
 			System.out.println("error:" + e);
 		} finally {
+			
 			// 5. 자원정리
+		
 			try {
 				if (rs != null) {
 					rs.close();
@@ -88,10 +97,6 @@ public class AuthorSelect {
 		// 맨앞데이터의 이름만 출력
 		// System.out.println(aList.get(0).getAuthorName());
 
-		/*
-		 * ---------------------------------------------- 1.이문열(경북영양) 4.김기태(기안동에서 산
-		 * 84년생)
-		 */
 		System.out.println("--------------------------------------------");
 		for (int i = 0; i < aList.size(); i++) {
 			int authorId = aList.get(i).getAuthorId();
