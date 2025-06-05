@@ -14,7 +14,7 @@ public class AuthorApp {
 		*/
 		
 		
-		//authorDao.authorDelete(3);
+		authorDao.authorDelete(3);
 		
 		//authorDao.authorUpdate(3, "강호동", "운동선수");
 		
