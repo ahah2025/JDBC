@@ -19,6 +19,14 @@ public class BookDAO {
 	private String url = "jdbc:mysql://localhost:3306/web_db";
 	private String id = "web";
 	private String pw = "web";
+	private String getBookId;
+	private String getTitle;
+	private String getPubs;
+	private String getPubDate;
+	private String getAuthorId;
+	private String bookPubs;
+	private String bookTitle;
+	private List<BookVO> bookList;
 
 	//생성자
 	public BookDAO() {}	
@@ -79,11 +87,11 @@ public class BookDAO {
 
 			// 바인딩
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, id); // 메소드의 파라미터
-			pstmt.setString(2, title); // 메소드의 파라미터
-			pstmt.setString(3, pubs); // 메소드의 파라미터
-			pstmt.setString(4, pubDate); // 메소드의 파라미터
-			pstmt.setString(5, authorId); // 메소드의 파라미터
+			pstmt.setString(1, getBookId); // 메소드의 파라미터
+			pstmt.setString(2, getTitle); // 메소드의 파라미터
+			pstmt.setString(3, getPubs); // 메소드의 파라미터
+			pstmt.setString(4, getPubDate); // 메소드의 파라미터
+			pstmt.setString(5, getAuthorId); // 메소드의 파라미터
 			
 			// 실행
 			count = pstmt.executeUpdate();
@@ -124,11 +132,11 @@ public class BookDAO {
 
 			// 바인딩
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, id); // 메소드의 파라미터
-			pstmt.setString(2, title); // 메소드의 파라미터
-			pstmt.setString(3, pubs); // 메소드의 파라미터
-			pstmt.setString(4, pubDate); // 메소드의 파라미터
-			pstmt.setString(5, authorId); // 메소드의 파라미터
+			pstmt.setString(1, getBookId); // 메소드의 파라미터
+			pstmt.setString(2, getTitle); // 메소드의 파라미터
+			pstmt.setString(3, getPubs); // 메소드의 파라미터
+			pstmt.setString(4, getPubDate); // 메소드의 파라미터
+			pstmt.setString(5, getAuthorId); // 메소드의 파라미터
 			
 			// 실행
 			count = pstmt.executeUpdate();
@@ -162,11 +170,11 @@ public class BookDAO {
 
 			// 바인딩
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, id); // 메소드의 파라미터
-			pstmt.setString(2, title); // 메소드의 파라미터
-			pstmt.setString(3, pubs); // 메소드의 파라미터
-			pstmt.setString(4, pubDate); // 메소드의 파라미터
-			pstmt.setString(5, authorId); // 메소드의 파라미터
+			pstmt.setString(1, getBookId); // 메소드의 파라미터
+			pstmt.setString(2, getTitle); // 메소드의 파라미터
+			pstmt.setString(3, getPubs); // 메소드의 파라미터
+			pstmt.setString(4, getPubDate); // 메소드의 파라미터
+			pstmt.setString(5, getAuthorId); // 메소드의 파라미터
 
 			// 실행
 			count = pstmt.executeUpdate();
@@ -223,8 +231,7 @@ public class BookDAO {
 				String authorId = rs.getString("author_id");
 
 				// 데이터 객체로 만들기(묶기)
-				BookVO bookVO = new BookVO(bookId, bookTitle, bookPubs, 
-										   bookPubDate , authorId);
+				BookVO bookVO = new BookVO();
 
 				// 묶은 데이터를 리스트에 달기
 				bookList.add(bookVO);
@@ -242,7 +249,7 @@ public class BookDAO {
 	}
 
 	// 데이터 1개 가져오기
-	public int bookSelectOne(int bookId, String title, String pubs, 
+	public List<BookVO> bookSelectOne(int bookId, String title, String pubs, 
 							 String pubDate,int authorId ) {
 		int count = -1;
 
@@ -276,14 +283,14 @@ public class BookDAO {
 			// 4.결과처리 (java 리스트로 만든다)
 			while (rs.next()) {
 
-				int bookId = rs.getInt("book_id");
+				int bookId1 = rs.getInt("book_id");
 				String booktitle = rs.getString("title");
 				String bookpubs = rs.getString("pubs");
 				String bookPubDate = rs.getString("pub_date");
 				String author_id = rs.getString("author_id");
 
 				// 데이터 객체로 만들기(묶기)
-				BookVO bookVO = new BookVO(bookId, bookTitle, bookPubs, bookPubDate , authorId);
+				BookVO bookVO = new BookVO(bookId1, bookTitle, bookPubs, bookPubDate , authorId);
 
 				// 묶은 데이터를 리스트에 달기
 				bookList.add(bookVO);
@@ -302,4 +309,3 @@ public class BookDAO {
 }
 
 	
-}

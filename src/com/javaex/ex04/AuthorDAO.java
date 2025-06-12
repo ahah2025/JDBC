@@ -226,7 +226,7 @@ public class AuthorDAO {
 	}
 
 	// 데이터 1개 가져오기
-	public int authorSelectOne(int authorId, String name, String desc) {
+	public AuthorVO authorSelectOne(int authorId, String name, String desc) {
 	
 		// vo
 		AuthorVO authorVO = null;
@@ -259,10 +259,10 @@ public class AuthorDAO {
 			rs.next();
 
 			int id = rs.getInt("author_id");
-			String name = rs.getString("author_name");
-			String desc = rs.getString("author_desc");
+			String name1 = rs.getString("author_name");
+			String desc1 = rs.getString("author_desc");
 
-			authorVO = new AuthorVO(id, name, desc);
+			authorVO = new AuthorVO(id, name1, desc1);
 
 		} catch (SQLException e) {
 			System.out.println("error:" + e);

@@ -19,7 +19,8 @@ public class AuthorApp {
 		List<AuthorVO> authorList = authorDAO.authorSelect();
 		System.out.println(authorList);
 		
-		AuthorVO authorVO =  authorDAO.authorSelectOne(11);
+		AuthorVO authorVO =  authorDAO.authorSelectOne(11, null, null);
+		//										(int authorId,String authorName,String authorDesc)
 		System.out.println(authorVO);
 		
 	}

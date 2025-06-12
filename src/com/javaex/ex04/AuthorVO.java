@@ -44,6 +44,6 @@ public class AuthorVO {
 	// 메소드일반
 	@Override
 	public String toString() {
-		return "AuthorVO [authorId=" + authorId + ", authorName=" + authorName + ", authorDesc=" + authorDesc + "]";
+		return "AuthorVO [작가아이디=" + authorId + ", 작가이름=" + authorName + ", 작가설명=" + authorDesc + "]";
 	}
 }

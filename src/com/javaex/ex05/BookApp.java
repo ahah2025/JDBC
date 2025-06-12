@@ -8,15 +8,16 @@ public class BookApp {
 	BookDAO bookDAO = new BookDAO();
 	
 	// BookVO
-	bookDAO.bookInsert();
-	bookDAO.bookUpdate();
-	bookDAO.bookDelete();
-	bookDAO.bookSelect();
-	bookDAO.bookSelectOne();
-	
+	/*
+	BookDAO.authorInsert();
+	BookDAO.bookUpdate();
+	BookDAO.bookDelete();
+	BookDAO.bookSelect();
+	BookDAO.bookSelectOne();
+	*/
 	
 	//BookAuthorVO
-	bookDAO.bookSelectList() --> 전체
+	bookDAO.bookSelect(); --> 전체
 	
 	
 	
